@@ -1,0 +1,12 @@
+%h1 人類の上位１％を目指す
+.header
+-if user_signed_in?
+  = current_user.nickname
+  = link_to destroy_user_session_path do
+    ログアウト
+
+-else
+  = link_to new_user_registration_path do
+    新規登録
+  = link_to new_user_session_path do
+    ログイン
