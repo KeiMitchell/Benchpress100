@@ -1,7 +1,16 @@
 .contents_row
   .success
-  %h3 トレーニングお疲れ様でした！
   %br/
-  .recordToday
+  .todaysRecord
+    - kilos = @record.pluck(:kilos).join.to_i
+    - reps = @record.pluck(:reps).join.to_i
+
+    = "本日の記録は#{kilos}キロ#{reps}セットということは、、、"
+    %br/
+    = "今回の最大挙重量は#{@max}キロです！！！！"
+    %br/
+    -if @max >= 100.0
+      = "100キロ達成おめでとうございます！！！"
+  %h3 トレーニングお疲れ様でした！
   .recordChart
   %a(href="/") ホーム画面に戻る
