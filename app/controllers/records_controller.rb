@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
 
   def index
+    @record = Record.order(updated_at: :desc).limit(1)
     @records = Record.all #@recordsというインスタンス変数にrecordsテーブルのレコードを全て代入
   end
 
