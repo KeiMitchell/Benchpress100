@@ -1,0 +1,16 @@
+.contents_row
+  .success
+  %br/
+  .todaysRecord
+    - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
+    - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
+
+    = "本日の記録が#{kilos}キロ#{reps}セットということは、、、"
+    %br/
+    = "今回の最大挙重量は#{@max}キロです！！！！"
+    %br/
+    -if @max >= 100.0 #もし100キロを超えていた場合の祝福メッセージ
+      = "100キロ達成おめでとうございます！！！"
+  %h3 トレーニングお疲れ様でした！
+  .recordChart
+  %a(href="/") ホーム画面に戻る
