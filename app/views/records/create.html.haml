@@ -5,7 +5,7 @@
     - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
     - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
 
-    = "本日の記録は#{kilos}キロ#{reps}セットということは、、、"
+    = "本日の記録が#{kilos}キロ#{reps}セットということは、、、"
     %br/
     = "今回の最大挙重量は#{@max}キロです！！！！"
     %br/
