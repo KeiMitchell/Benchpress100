@@ -2,15 +2,16 @@
 -if user_signed_in?
   = link_to destroy_user_session_path do
     ログアウト
-  - user = current_user.nickname
   %br/
+  - user = current_user.nickname
   = "#{user}さん、今日も100キロ目指して頑張っていきましょう！！"
   .previousRecord
     - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
     - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
-    = "前回の記録は#{kilos}キロ、#{reps}セットです"
+    = "前回の記録は#{kilos}キロ、#{reps}セット、最大挙げ重量#{@max}キロです!"
   .recordChart
-    
+    = line_chart @data_array, width: "800px", height: "500px" 
+
 -else
   = link_to new_user_registration_path do
     新規登録
