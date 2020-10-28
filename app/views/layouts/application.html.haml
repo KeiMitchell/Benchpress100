@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Benchpress100
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      .topBar
+        .topBar__left
+          = link_to root_path, class:"topBar__left--main" do  
+            The 1%
+        .topBar__right
+          - if user_signed_in?
+            = link_to destroy_user_session_path, class:"topBar__right--main" do
+              ログアウト
+          - else
+            = link_to new_user_registration_path do
+              新規登録
+            = link_to new_user_session_path do
+              ログイン
+  
+
+    = yield
+    %footer
+      Copyright Machoninaritai 2020.
