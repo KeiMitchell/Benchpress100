@@ -1,19 +1,44 @@
 
 -if user_signed_in?
-  = link_to destroy_user_session_path do
-    ログアウト
   %br/
-  - user = current_user.nickname
-  = "#{user}さん、今日も100キロ目指して頑張っていきましょう！！"
-  .previousRecord
-    - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
-    - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
-    = "前回の記録は#{kilos}キロ、#{reps}セット、最大挙げ重量#{@max}キロです!"
-  .recordChart
-    = line_chart @data_array, width: "800px", height: "500px" 
+  .userPage
+    .userPage__welcome
+      - user = current_user.nickname
+      = "#{user}さん、今日も100キロ目指して頑張っていきましょう！！"
+      .userPage__welcome--previous
+        - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
+        - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
+      %table.userPage__table
+        前回の記録
+        %tbody.userPage__tab__body
+          %tr.userPage__table__body--row
+            %th.userPage__table__body--item
+              重さ
+            %th.userPage__table__body--item
+              回数
+            %th.userPage__table__body--item
+              最大挙重量
+          %tr.userPage__table__body--row
+            %th.userPage__table__body--data
+              = "#{kilos}キロ"
+            %th.userPage__table__body--data
+              = "#{reps}回"
+            %th.userPage__table__body--data
+              = "#{@max}キロ"
+
+      .userPage__welcome__train
+        = link_to new_record_path, class: 'userPage__welcome__train--btn' do
+          トレーニングする
+  
+    .userPage__record
+      = line_chart @data_array, width: "600px", height: "300px" 
 
 -else
-  = link_to new_user_registration_path do
-    新規登録
-  = link_to new_user_session_path do
-    ログイン
+  .userPage
+  .userPage_welcome
+    .userPage_welcome-message
+  .userPage_option
+    = link_to new_user_registration_path do
+      新規登録
+    = link_to new_user_session_path do
+      ログイン

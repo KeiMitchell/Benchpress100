@@ -8,13 +8,22 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header.header
-      .header__bar.row
-        %h1.grid-6
-          %a{:href => "/"} マッチョになりたい
-          .user_nav.grid-6
-            %a.post{:href => "/records/new"} トレーニングする
+    %header
+      .topBar
+        .topBar__left
+          = link_to root_path, class:"topBar__left--main" do  
+            The 1%
+        .topBar__right
+          - if user_signed_in?
+            = link_to destroy_user_session_path, class:"topBar__right--main" do
+              ログアウト
+          - else
+            = link_to new_user_registration_path do
+              新規登録
+            = link_to new_user_session_path do
+              ログイン
+  
+
     = yield
     %footer
-      %p
-        Copyright Machoninaritai 2020.
+      Copyright Machoninaritai 2020.

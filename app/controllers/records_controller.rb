@@ -36,6 +36,4 @@ class RecordsController < ApplicationController
     max = (kilos * (1 + (reps / 40.0))) #最大挙重量の計算式
   end
 
-
-
 end
