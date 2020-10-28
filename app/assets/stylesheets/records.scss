@@ -16,15 +16,16 @@
       align-items: center;
       &--btn {
         text-decoration: none;
-        color: #E1F5FE; 
+        color: #fff;
         padding: 6px 10px;
         border-radius: 40px;
-        background-color:#01579B;
-        transition: .3s;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
+        background-color: #0277BD;
+        border-bottom: 5px solid #01579B;
       }
       &--btn:hover {
-        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+        color: #fff;
+        background: #0277BD;
+        border-bottom: 2px solid #01579B;
       }
     }
   }

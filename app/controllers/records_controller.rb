@@ -1,15 +1,18 @@
 class RecordsController < ApplicationController
 
   def index
-    @previousrecord = Record.order(updated_at: :desc).limit(1)
-    @records = Record.where(user_id: current_user.id)
-    @max = previous_max_record
-    @data_array = []
-    @records.each do |record|
-      kilos = record.kilos.to_i
-      reps = record.reps.to_i
-      max = (kilos * (1 + (reps / 40.0)))
-      @data_array << [record.created_at.strftime('%Y-%m-%d'),  max]
+    if user_signed_in?
+      @previousrecord = Record.order(updated_at: :desc).limit(1)
+      @records = Record.where(user_id: current_user.id)
+      @max = previous_max_record
+      @data_array = []
+      @records.each do |record|
+        kilos = record.kilos.to_i
+        reps = record.reps.to_i
+        max = (kilos * (1 + (reps / 40.0)))
+        @data_array << [record.created_at.strftime('%Y-%m-%d'),  max]
+      end
+    else
     end
   end
 
