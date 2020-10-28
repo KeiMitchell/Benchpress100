@@ -2,8 +2,8 @@
   .success
   %br/
   .todaysRecord
-    - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
-    - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
+    - kilos = @previousrecord.pluck(:kilos).join.to_i #@recordからキロデータの取得
+    - reps = @previousrecord.pluck(:reps).join.to_i #@recordからrepデータを取得
 
     = "本日の記録が#{kilos}キロ#{reps}セットということは、、、"
     %br/
