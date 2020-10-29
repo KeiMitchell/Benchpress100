@@ -1,12 +1,14 @@
-.contents_row
-  .container
-    - if user_signed_in?
-      %h3 トレーニングを記録する
-      = form_with model: @record, local: true do |form|
-        = form.text_field :kilos, placeholder: "キロ"
-        = form.text_field :reps, placeholder: "セット"
-        = form.submit "記録"
-    - else
-      = link_to new_user_registration_path do
-        今日から１００キロ目指す！
-      
+%h3.newRecord
+  .newRecord__header トレーニング結果を入力しよう！
+  = form_with model: @record, class: "newRecord__form", local: true do |form|
+    = form.text_field :kilos, class: "newRecord__form--input", placeholder: "キロ"
+    - if @record.errors.include?(:kilos)
+      %span.error-message
+        = @record.errors.full_messages_for(:kilos).first
+    %br/
+    = form.text_field :reps, class: "newRecord__form--input", placeholder: "セット"
+    - if @record.errors.include?(:reps)
+      %span.error-message
+        = @record.errors.full_messages_for(:reps).first
+    %br/
+    = form.submit "記録", class: "newRecord__form--btn"

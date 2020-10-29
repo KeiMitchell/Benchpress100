@@ -1,0 +1,46 @@
+
+.newRecord {
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  background-color:#E1F5FE;
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+  }
+  &__form{
+    height: 200px;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--input {
+      border-radius: 40px;
+      height: 40px;
+      // margin: 20px 150px 20px 100px;
+    }
+    &--btn{
+      border-radius: 40px;
+      height: 40px;
+      color: #fff;
+      background-color: #0277BD;
+      border-bottom: 5px solid #01579B;
+      margin-left: 100px;
+    }
+    &--btn:hover {
+      margin-top: 3px;
+      color: #fff;
+      background: #0277BD;
+      border-bottom: 2px solid #01579B;
+    }
+  }
+  .error-message {
+    float: left;
+    font-size: 10px;
+    color: red;
+  }
+}

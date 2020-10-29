@@ -1,4 +1,5 @@
 @import "records";
+@import "new";
 
 header {
   width: 100%;
@@ -17,7 +18,7 @@ header {
     &--main {
       font-size: 70px;
       text-decoration: none;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Courier New", Courier;
       color: white;
     }
   }

@@ -6,8 +6,8 @@
       - user = current_user.nickname
       = "#{user}さん、今日も100キロ目指して頑張っていきましょう！！"
       .userPage__welcome--previous
-        - kilos = @record.pluck(:kilos).join.to_i #@recordからキロデータの取得
-        - reps = @record.pluck(:reps).join.to_i #@recordからrepデータを取得
+        - kilos = @previousrecord.pluck(:kilos).join.to_i #@recordからキロデータの取得
+        - reps = @previousrecord.pluck(:reps).join.to_i #@recordからrepデータを取得
       %table.userPage__table
         前回の記録
         %tbody.userPage__tab__body
